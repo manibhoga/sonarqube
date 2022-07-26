@@ -29,6 +29,8 @@ jobs:
     - run: npm ci
     - name: Setup sonarqube
       uses: warchant/setup-sonar-scanner@v3
+      with:
+         version: 4.2.0.1873
     - name: Run sonarqube
       run: sonar-scanner
            -Dsonar.projectKey=sample
