@@ -30,7 +30,10 @@ jobs:
     
     - uses: sonarsource/sonarqube-scan-action@master
       with:
-         projectBaseDir: ./
-      env:
-        SONAR_TOKEN: sqa_82aa0f6bc1c70d414ab64f01a8f8a3cd885d2f2e
-        SONAR_HOST_URL: http://172.23.1.123:9000/
+         sonar.projectKey: sample
+         sonar.projectName: application
+         sonar.projectBaseDir: .
+         sonar.login: sqa_82aa0f6bc1c70d414ab64f01a8f8a3cd885d2f2e
+         sonar.host.url: http://172.23.1.123:9000/
+         
+      
