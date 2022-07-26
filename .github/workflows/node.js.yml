@@ -29,8 +29,8 @@ jobs:
     - run: npm ci
     
     - uses: sonarsource/sonarqube-scan-action@master
-      env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+      with:
+         sonar.login: ${{ secrets.SONAR_TOKEN }}
+         sonar.host.url: ${{ secrets.SONAR_HOST_URL }}
          
       
