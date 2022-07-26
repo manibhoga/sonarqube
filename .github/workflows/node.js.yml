@@ -28,9 +28,7 @@ jobs:
         cache: 'npm'
     - run: npm ci
     
-    - name: Run sonarqube
-      run: sonar-scanner
-           -Dsonar.projectKey=sample
-           -Dsonar.sources=app
-           -Dsonar.host.url=http://172.23.1.123:9000/
-           -Dsonar.login=sqa_82aa0f6bc1c70d414ab64f01a8f8a3cd885d2f2e
+    - uses: sonarsource/sonarqube-scan-action@master
+      env:
+        SONAR_TOKEN: sqa_82aa0f6bc1c70d414ab64f01a8f8a3cd885d2f2e
+        SONAR_HOST_URL: http://172.23.1.123:9000/
