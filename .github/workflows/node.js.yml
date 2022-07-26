@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x,14.x,16.x]
+        node-version: [16.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -27,3 +27,11 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm ci
+    - name: Setup sonarqube
+      uses: warchant/setup-sonar-scanner@v3
+    - name: Run sonarqube
+      run: sonar-scanner
+           -Dsonar.projectKey=sample
+           -Dsonar.sources=app
+           -Dsonar.host.url=http://172.23.1.123:9000/
+           -Dsonar.login=sqa_82aa0f6bc1c70d414ab64f01a8f8a3cd885d2f2e
